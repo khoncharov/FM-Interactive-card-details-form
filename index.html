@@ -11,12 +11,69 @@
       <main class="main">
         <div class="card__section">
           <div class="card__background"></div>
-          <div class="card__front card__shadow"></div>
-          <div class="card__back card__shadow"></div>
+          <div class="card__front card__shadow">
+            0000 0000 0000 0000 Jane Appleseed 00/00
+          </div>
+          <div class="card__back card__shadow">000</div>
         </div>
         <div class="form__section">
           <div class="form__container">
-            <form class="form__inner"></form>
+            <form class="form__inner">
+              <div class="form__field-container">
+                <label class="form__label" for="cardholder-name">Cardholder Name</label>
+                <input
+                  class="form__input"
+                  id="cardholder-name"
+                  type="text"
+                  placeholder="e.g. Jane Appleseed"
+                />
+              </div>
+
+              <div class="form__field-container">
+                <label class="form__label" for="card-number">Card Number</label>
+                <input
+                  class="form__input"
+                  id="card-number"
+                  type="text"
+                  placeholder="e.g. 1234 5678 9123 0000"
+                />
+              </div>
+
+              <div class="form__expiration-date-wrapper">
+                <div class="form__field-container">
+                  <label class="form__label" for="card-card-exp-date-month">
+                    Exp. Date (MM/YY)
+                  </label>
+                  <div class="form__expiration-date">
+                    <input
+                      class="form__input"
+                      id="card-card-exp-date-month"
+                      type="text"
+                      placeholder="MM"
+                    />
+                    <input
+                      class="form__input"
+                      id="card-card-exp-date-year"
+                      type="text"
+                      placeholder="YY"
+                      aria-labelledby="card-card-exp-date-month"
+                    />
+                  </div>
+                </div>
+
+                <div class="form__field-container">
+                  <label class="form__label" for="card-cvc">CVC</label>
+                  <input
+                    class="form__input"
+                    id="card-cvc"
+                    type="text"
+                    placeholder="e.g. 123"
+                  />
+                </div>
+              </div>
+
+              <button class="form__submit-btn" type="submit">Confirm</button>
+            </form>
           </div>
         </div>
       </main>
