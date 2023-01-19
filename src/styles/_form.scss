@@ -87,9 +87,19 @@
     color: $light-grayish-violet;
     background-color: $very-dark-violet;
     cursor: pointer;
+    transition: $transition-x1;
 
     @media screen and (min-width: $width-switch-point) {
       margin-top: 1.2rem;
     }
+  }
+
+  &__submit-btn:hover {
+    background-color: rgba($very-dark-violet, 0.8);
+    color: $white;
+  }
+
+  &__submit-btn:active {
+    background-color: $very-dark-violet;
   }
 }
