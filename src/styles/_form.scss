@@ -48,10 +48,16 @@
   &__input {
     font: inherit;
     width: 100%;
-    padding-inline: 1.6rem;
+    text-indent: 1.6rem;
     height: 4.5rem;
     border-radius: 0.8rem;
     border: 1px solid $light-grayish-violet;
+    transition: border-color $transition-x1;
+  }
+
+  &__input:hover,
+  &__input:focus {
+    border: 1px solid $very-dark-violet;
   }
 
   &__input::placeholder {
@@ -87,7 +93,7 @@
     color: $light-grayish-violet;
     background-color: $very-dark-violet;
     cursor: pointer;
-    transition: $transition-x1;
+    transition: background-color $transition-x1, color $transition-x1;
 
     @media screen and (min-width: $width-switch-point) {
       margin-top: 1.2rem;
