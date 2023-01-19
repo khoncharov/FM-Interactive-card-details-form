@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: $font-size-basic;
+  font-family: "Space Grotesk", sans-serif;
+  background-color: $white;
+}
+
+body {
+  @include font();
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-inline-size: 100%;
+  block-size: auto;
+  object-fit: cover;
+}
+
+input {
+  outline: none;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+}
