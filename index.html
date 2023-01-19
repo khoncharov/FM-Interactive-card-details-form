@@ -9,7 +9,7 @@
   <body>
     <div id="app">
       <main class="main">
-        <div class="card__section">
+        <div class="card__section" role="presentation">
           <div class="card__background"></div>
           <div class="card__front card__shadow">
             <div class="card__logo"></div>
@@ -29,6 +29,7 @@
                 <input
                   class="form__input"
                   id="cardholder-name"
+                  name="cardholderName"
                   type="text"
                   placeholder="e.g. Jane Appleseed"
                   autocomplete="cc-name"
@@ -40,32 +41,38 @@
                 <input
                   class="form__input"
                   id="card-number"
+                  name="cardNumber"
                   type="text"
                   placeholder="e.g. 1234 5678 9123 0000"
                   autocomplete="cc-number"
+                  maxlength="19"
                 />
               </div>
 
               <div class="form__expiration-date-wrapper">
                 <div class="form__field-container">
-                  <label class="form__label" for="card-card-exp-date-month">
+                  <label class="form__label" for="card-exp-month">
                     Exp. Date (MM/YY)
                   </label>
                   <div class="form__expiration-date">
                     <input
                       class="form__input"
-                      id="card-card-exp-date-month"
+                      id="card-exp-month"
+                      name="cardExpirationMonth"
                       type="text"
                       placeholder="MM"
                       autocomplete="cc-exp-month"
+                      maxlength="2"
                     />
                     <input
                       class="form__input"
-                      id="card-card-exp-date-year"
+                      id="card-exp-year"
+                      name="cardExpirationYear"
                       type="text"
                       placeholder="YY"
-                      aria-labelledby="card-card-exp-date-month"
+                      aria-labelledby="card-exp-month"
                       autocomplete="cc-exp-year"
+                      maxlength="2"
                     />
                   </div>
                 </div>
@@ -75,9 +82,11 @@
                   <input
                     class="form__input"
                     id="card-cvc"
+                    name="cardCvc"
                     type="text"
                     placeholder="e.g. 123"
                     autocomplete="off"
+                    maxlength="3"
                   />
                 </div>
               </div>
