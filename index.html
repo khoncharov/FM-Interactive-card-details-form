@@ -29,10 +29,10 @@
                 <input
                   class="form__input"
                   id="cardholder-name"
-                  name="cardholderName"
                   type="text"
                   placeholder="e.g. Jane Appleseed"
                   autocomplete="cc-name"
+                  maxlength="23"
                 />
               </div>
 
@@ -41,7 +41,6 @@
                 <input
                   class="form__input"
                   id="card-number"
-                  name="cardNumber"
                   type="text"
                   placeholder="e.g. 1234 5678 9123 0000"
                   autocomplete="cc-number"
@@ -58,7 +57,6 @@
                     <input
                       class="form__input"
                       id="card-exp-month"
-                      name="cardExpirationMonth"
                       type="text"
                       placeholder="MM"
                       autocomplete="cc-exp-month"
@@ -67,7 +65,6 @@
                     <input
                       class="form__input"
                       id="card-exp-year"
-                      name="cardExpirationYear"
                       type="text"
                       placeholder="YY"
                       aria-labelledby="card-exp-month"
@@ -82,7 +79,6 @@
                   <input
                     class="form__input"
                     id="card-cvc"
-                    name="cardCvc"
                     type="text"
                     placeholder="e.g. 123"
                     autocomplete="off"
@@ -100,7 +96,7 @@
               <div class="confirmation__icon"></div>
               <h2 class="confirmation__heading">Thank you!</h2>
               <p class="confirmation__message">We've added your card details</p>
-              <button class="form__submit-btn" type="submit" id="submit-btn">
+              <button class="form__submit-btn" type="submit" id="continue-btn">
                 Continue
               </button>
             </section>
