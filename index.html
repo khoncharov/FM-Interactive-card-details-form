@@ -23,7 +23,7 @@
         </div>
         <div class="form__section">
           <div class="form__container">
-            <form class="form__form">
+            <form class="form__form" id="card-form">
               <div class="form__field-container">
                 <label class="form__label" for="cardholder-name">Cardholder Name</label>
                 <input
@@ -31,6 +31,7 @@
                   id="cardholder-name"
                   type="text"
                   placeholder="e.g. Jane Appleseed"
+                  autocomplete="cc-name"
                 />
               </div>
 
@@ -41,6 +42,7 @@
                   id="card-number"
                   type="text"
                   placeholder="e.g. 1234 5678 9123 0000"
+                  autocomplete="cc-number"
                 />
               </div>
 
@@ -55,6 +57,7 @@
                       id="card-card-exp-date-month"
                       type="text"
                       placeholder="MM"
+                      autocomplete="cc-exp-month"
                     />
                     <input
                       class="form__input"
@@ -62,6 +65,7 @@
                       type="text"
                       placeholder="YY"
                       aria-labelledby="card-card-exp-date-month"
+                      autocomplete="cc-exp-year"
                     />
                   </div>
                 </div>
@@ -73,11 +77,14 @@
                     id="card-cvc"
                     type="text"
                     placeholder="e.g. 123"
+                    autocomplete="off"
                   />
                 </div>
               </div>
 
-              <button class="form__submit-btn" type="submit">Confirm</button>
+              <button class="form__submit-btn" type="submit" id="submit-btn">
+                Confirm
+              </button>
             </form>
           </div>
         </div>
