@@ -1,7 +1,7 @@
 import cardData from './card-data';
 import { cardView } from './card-view';
 import { FormInputId } from './types';
-import { deleteSpaces, formatCardNumber, isNotEmptyStr } from './utils';
+import { deleteSpaces, formatCardNumber, isNotEmptyStr, prependZero } from './utils';
 
 export default class FormChangeHandler {
   protected cardholderInput: HTMLInputElement | null =
@@ -75,6 +75,30 @@ export default class FormChangeHandler {
           this.cardData.cvc = this.cardCvcInput.value;
         } else {
           this.cardData.cvc = null;
+        }
+      }
+      this.cardView.update();
+    });
+
+    this.cardExpMonthInput?.addEventListener('blur', () => {
+      if (this.cardExpMonthInput) {
+        if (isNotEmptyStr(this.cardExpMonthInput.value)) {
+          this.cardData.expirationMonth = prependZero(this.cardExpMonthInput.value);
+          this.cardExpMonthInput.value = this.cardData.expirationMonth;
+        } else {
+          this.cardData.expirationMonth = null;
+        }
+      }
+      this.cardView.update();
+    });
+
+    this.cardExpYearInput?.addEventListener('blur', () => {
+      if (this.cardExpYearInput) {
+        if (isNotEmptyStr(this.cardExpYearInput.value)) {
+          this.cardData.expirationYear = prependZero(this.cardExpYearInput.value);
+          this.cardExpYearInput.value = this.cardData.expirationYear;
+        } else {
+          this.cardData.expirationYear = null;
         }
       }
       this.cardView.update();

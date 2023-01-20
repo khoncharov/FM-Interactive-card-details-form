@@ -23,3 +23,6 @@ export const formatCardNumber = (value: string): string => {
 };
 
 export const deleteSpaces = (value: string): string => value.trim().split(' ').join('');
+
+export const prependZero = (value: string): string =>
+  value.length === 1 ? `0${value}` : value;
