@@ -25,7 +25,9 @@
           <div class="form__container">
             <form class="form__form" id="card-form">
               <div class="form__field-container">
-                <label class="form__label" for="cardholder-name">Cardholder Name</label>
+                <label class="form__label" for="cardholder-name" aria-required="true">
+                  Cardholder Name
+                </label>
                 <input
                   class="form__input"
                   id="cardholder-name"
@@ -37,7 +39,9 @@
               </div>
 
               <div class="form__field-container">
-                <label class="form__label" for="card-number">Card Number</label>
+                <label class="form__label" for="card-number" aria-required="true">
+                  Card Number
+                </label>
                 <input
                   class="form__input"
                   id="card-number"
@@ -49,7 +53,12 @@
 
               <div class="form__expiration-date-wrapper">
                 <div class="form__field-container">
-                  <label class="form__label" for="card-exp-month">
+                  <label
+                    class="form__label"
+                    for="card-exp-month"
+                    aria-description="Expiration date (Month/Year)"
+                    aria-required="true"
+                  >
                     Exp. Date (MM/YY)
                   </label>
                   <div class="form__expiration-date">
@@ -60,21 +69,30 @@
                       placeholder="MM"
                       autocomplete="off"
                       maxlength="2"
+                      aria-label="month"
                     />
                     <input
                       class="form__input"
                       id="card-exp-year"
                       type="text"
                       placeholder="YY"
-                      aria-labelledby="card-exp-month"
                       autocomplete="off"
                       maxlength="2"
+                      aria-labelledby="card-exp-month"
+                      aria-label="year"
                     />
                   </div>
                 </div>
 
                 <div class="form__field-container">
-                  <label class="form__label" for="card-cvc">CVC</label>
+                  <label
+                    class="form__label"
+                    for="card-cvc"
+                    aria-description="CVC code"
+                    aria-required="true"
+                  >
+                    CVC
+                  </label>
                   <input
                     class="form__input"
                     id="card-cvc"
