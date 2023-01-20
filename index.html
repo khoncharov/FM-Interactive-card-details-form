@@ -52,15 +52,15 @@
               </div>
 
               <div class="form__expiration-date-wrapper">
-                <div class="form__field-container">
-                  <label
+                <fieldset class="form__field-container">
+                  <legend
                     class="form__label"
-                    for="card-exp-month"
+                    id="card-exp-date"
                     aria-description="Expiration date (Month/Year)"
                     aria-required="true"
                   >
                     Exp. Date (MM/YY)
-                  </label>
+                  </legend>
                   <div class="form__expiration-date">
                     <input
                       class="form__input"
@@ -69,6 +69,7 @@
                       placeholder="MM"
                       autocomplete="off"
                       maxlength="2"
+                      aria-labelledby="card-exp-date"
                       aria-label="month"
                     />
                     <input
@@ -78,11 +79,11 @@
                       placeholder="YY"
                       autocomplete="off"
                       maxlength="2"
-                      aria-labelledby="card-exp-month"
+                      aria-labelledby="card-exp-date"
                       aria-label="year"
                     />
                   </div>
-                </div>
+                </fieldset>
 
                 <div class="form__field-container">
                   <label
