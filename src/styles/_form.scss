@@ -113,4 +113,25 @@
   &__btn:active {
     background-color: $very-dark-violet;
   }
+
+  &__error-msg {
+    display: block;
+    margin-bottom: 1.8rem;
+    font-size: 1.2rem;
+    line-height: 2.9;
+    color: $red-warn;
+  }
+
+  &__form:has(.invalid-field) > &__btn {
+    margin-top: 0;
+  }
+}
+
+.invalid-field,
+.invalid-field:focus {
+  border-color: $red-warn;
+}
+
+.invalid-field:hover {
+  border-color: $red-warn-hover;
 }
