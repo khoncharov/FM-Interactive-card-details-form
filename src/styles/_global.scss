@@ -42,6 +42,10 @@ fieldset {
   border: none;
 }
 
+legend {
+  padding-inline: 0;
+}
+
 #app {
   position: relative;
   width: 100%;
