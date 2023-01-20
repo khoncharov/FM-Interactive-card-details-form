@@ -7,6 +7,7 @@ import {
   DEFAULT_CARD_NUMBER,
 } from './const';
 import { CardViewClassName } from './types';
+import { formatCardNumber } from './utils';
 
 class CardView {
   protected cardholder: HTMLParagraphElement | null =
@@ -34,7 +35,7 @@ class CardView {
 
     if (this.cardNumber) {
       if (this.card.number) {
-        this.cardNumber.textContent = this.card.number;
+        this.cardNumber.textContent = formatCardNumber(this.card.number);
       } else {
         this.cardNumber.textContent = DEFAULT_CARD_NUMBER;
       }

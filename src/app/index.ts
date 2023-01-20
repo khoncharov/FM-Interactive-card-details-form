@@ -22,7 +22,7 @@ class CardService extends FormChangeHandler {
       e.preventDefault();
       this.toggleFormView();
 
-      console.log(this.cardData);
+      console.dir(this.cardData); // Demo purpose only
     });
 
     this.continueBtn?.addEventListener('click', () => {
