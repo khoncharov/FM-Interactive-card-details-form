@@ -31,9 +31,16 @@
                   id="cardholder-name"
                   type="text"
                   placeholder="e.g. Jane Appleseed"
-                  autocomplete="cc-name"
-                  maxlength="23"
+                  autocomplete="off"
+                  aria-required="true"
+                  aria-invalid="false"
+                  aria-errormessage="cardholder-name-err"
                 />
+                <span
+                  class="form__error-msg"
+                  id="cardholder-name-err"
+                  role="alert"
+                ></span>
               </div>
 
               <div class="form__field-container">
@@ -43,63 +50,105 @@
                   id="card-number"
                   type="text"
                   placeholder="e.g. 1234 5678 9123 0000"
-                  autocomplete="cc-number"
-                  maxlength="19"
+                  autocomplete="off"
+                  aria-required="true"
+                  aria-invalid="false"
+                  aria-errormessage="card-number-err"
                 />
+                <span class="form__error-msg" id="card-number-err" role="alert"></span>
               </div>
 
               <div class="form__expiration-date-wrapper">
-                <div class="form__field-container">
-                  <label class="form__label" for="card-exp-month">
+                <fieldset class="form__field-container">
+                  <legend
+                    class="form__label"
+                    id="card-exp-date"
+                    aria-description="Expiration date (Month/Year)"
+                  >
                     Exp. Date (MM/YY)
-                  </label>
+                  </legend>
                   <div class="form__expiration-date">
                     <input
                       class="form__input"
                       id="card-exp-month"
                       type="text"
                       placeholder="MM"
-                      autocomplete="cc-exp-month"
-                      maxlength="2"
+                      autocomplete="off"
+                      aria-required="true"
+                      aria-labelledby="card-exp-date"
+                      aria-label="month"
+                      aria-invalid="false"
+                      aria-errormessage="card-exp-date-err"
                     />
                     <input
                       class="form__input"
                       id="card-exp-year"
                       type="text"
                       placeholder="YY"
-                      aria-labelledby="card-exp-month"
-                      autocomplete="cc-exp-year"
-                      maxlength="2"
+                      autocomplete="off"
+                      aria-required="true"
+                      aria-labelledby="card-exp-date"
+                      aria-label="year"
+                      aria-invalid="false"
+                      aria-errormessage="card-exp-date-err"
                     />
                   </div>
-                </div>
+                  <span
+                    class="form__error-msg"
+                    id="card-exp-date-err"
+                    role="alert"
+                  ></span>
+                </fieldset>
 
                 <div class="form__field-container">
-                  <label class="form__label" for="card-cvc">CVC</label>
+                  <label
+                    class="form__label"
+                    for="card-cvc"
+                    aria-description="Card Verification Value/Code"
+                  >
+                    CVC
+                  </label>
                   <input
                     class="form__input"
                     id="card-cvc"
                     type="text"
                     placeholder="e.g. 123"
                     autocomplete="off"
-                    maxlength="3"
+                    aria-required="true"
+                    aria-invalid="false"
+                    aria-errormessage="card-cvc-err"
                   />
+                  <span class="form__error-msg" id="card-cvc-err" role="alert"></span>
                 </div>
               </div>
 
-              <button class="form__submit-btn" type="submit" id="submit-btn">
-                Confirm
-              </button>
+              <button class="form__btn" type="submit" id="submit-btn">Confirm</button>
             </form>
 
             <section class="confirmation__container hidden">
               <div class="confirmation__icon"></div>
               <h2 class="confirmation__heading">Thank you!</h2>
               <p class="confirmation__message">We've added your card details</p>
-              <button class="form__submit-btn" type="submit" id="continue-btn">
-                Continue
-              </button>
+              <button class="form__btn" type="submit" id="continue-btn">Continue</button>
             </section>
+
+            <div class="attribution">
+              <a
+                class="attribution__link"
+                href="https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw"
+                title="Challenge page on The Frontend Mentor site."
+              >
+                Challenge by Frontend Mentor
+              </a>
+
+              <a
+                class="attribution__link"
+                href="https://github.com/khoncharov"
+                title="My github page."
+              >
+                Coded by Konstantin
+              </a>
+            </div>
           </div>
         </div>
       </main>

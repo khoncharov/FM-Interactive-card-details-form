@@ -6,6 +6,11 @@
   padding: 0;
 }
 
+*:focus-visible {
+  outline: 2px dashed $red-warn;
+  outline-offset: 2px;
+}
+
 html {
   font-size: $font-size-basic;
   font-family: "Space Grotesk", sans-serif;
@@ -36,6 +41,14 @@ img {
 
 input {
   outline: none;
+}
+
+fieldset {
+  border: none;
+}
+
+legend {
+  padding-inline: 0;
 }
 
 #app {

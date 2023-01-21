@@ -6,6 +6,13 @@ export enum FormInputId {
   CARD_CVC = 'card-cvc',
 }
 
+export enum FormErrField {
+  CARDHOLDER = 'cardholder-name-err',
+  CARD_NUM = 'card-number-err',
+  CARD_EXP_DATE = 'card-exp-date-err',
+  CARD_CVC = 'card-cvc-err',
+}
+
 export enum CardViewClassName {
   CARDHOLDER = 'card__cardholder-name',
   CARD_NUM = 'card__number',

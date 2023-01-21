@@ -1,17 +1,19 @@
-## Requirements:
+# Interactive card details form
 
-1. Fill in the form and see the card details update in real-time
+This is the solution to the task ["Interactive card details form"](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw) from `frontendmentor.io`
 
-2. Receive error messages when the form is submitted if:
+- Solution deploy: [link](https://friendly-alpaca-f0eac0.netlify.app)
 
-   2.1 Any input field is empty
+## Key features
 
-   - MSG: _`Can't be blank`_
+- Semantic HTML
+- SCSS
+- TS
+- Vite
+- Desktop/mobile UI
+- Accessibility
 
-   2.2 The card number, expiry date, or CVC fields are in the wrong format
+## Useful link
 
-   - msg: _`Wrong format, numbers only`_
-
-3. View the optimal layout depending on their device's screen size
-
-4. See hover, active, and focus states for interactive elements on the page
+- [Web forms — Working with user data](https://developer.mozilla.org/en-US/docs/Learn/Forms)
+- [Learn web development](https://web.dev/learn)

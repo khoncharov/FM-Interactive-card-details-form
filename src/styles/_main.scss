@@ -12,3 +12,27 @@
     grid-template-columns: 668fr 389fr;
   }
 }
+
+.attribution {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 2.4rem;
+
+  &__link {
+    display: block;
+    width: max-content;
+    margin-top: 0.8rem;
+    font-size: 1.4rem;
+    color: $dark-grayish-violet;
+    transition: color $transition-x1;
+  }
+
+  &__link:hover,
+  &__link:focus {
+    color: $input-hover;
+  }
+
+  &__link:active {
+    color: $input-focus;
+  }
+}

@@ -1,14 +1,15 @@
-import cardData from './card-data';
+import CardData from './card-data';
 import {
   DEFAULT_CARDHOLDER,
   DEFAULT_CARD_CVC,
   DEFAULT_CARD_EXP_MONTH,
   DEFAULT_CARD_EXP_YEAR,
   DEFAULT_CARD_NUMBER,
-} from './const';
-import { CardViewClassName } from './types';
+} from '../const';
+import { CardViewClassName } from '../types';
+import { formatCardNumber } from '../utils';
 
-class CardView {
+export default class CardView {
   protected cardholder: HTMLParagraphElement | null =
     document.querySelector<HTMLParagraphElement>(`.${CardViewClassName.CARDHOLDER}`);
 
@@ -21,20 +22,18 @@ class CardView {
   protected cardCvc: HTMLParagraphElement | null =
     document.querySelector<HTMLParagraphElement>(`.${CardViewClassName.CARD_CVC}`);
 
-  protected card = cardData;
-
-  update(): void {
+  update(data: CardData): void {
     if (this.cardholder) {
-      if (this.card.holderName) {
-        this.cardholder.textContent = this.card.holderName;
+      if (data.holderName) {
+        this.cardholder.textContent = data.holderName;
       } else {
         this.cardholder.textContent = DEFAULT_CARDHOLDER;
       }
     }
 
     if (this.cardNumber) {
-      if (this.card.number) {
-        this.cardNumber.textContent = this.card.number;
+      if (data.number) {
+        this.cardNumber.textContent = formatCardNumber(data.number);
       } else {
         this.cardNumber.textContent = DEFAULT_CARD_NUMBER;
       }
@@ -42,23 +41,21 @@ class CardView {
 
     if (this.cardExpDate) {
       const expirationDate = [DEFAULT_CARD_EXP_MONTH, DEFAULT_CARD_EXP_YEAR];
-      if (this.card.expirationMonth) {
-        expirationDate[0] = this.card.expirationMonth;
+      if (data.expMonth) {
+        expirationDate[0] = data.expMonth;
       }
-      if (this.card.expirationYear) {
-        expirationDate[1] = this.card.expirationYear;
+      if (data.expYear) {
+        expirationDate[1] = data.expYear;
       }
       this.cardExpDate.textContent = expirationDate.join('/');
     }
 
     if (this.cardCvc) {
-      if (this.card.cvc) {
-        this.cardCvc.textContent = this.card.cvc;
+      if (data.cvc) {
+        this.cardCvc.textContent = data.cvc;
       } else {
         this.cardCvc.textContent = DEFAULT_CARD_CVC;
       }
     }
   }
 }
-
-export const cardView = new CardView();

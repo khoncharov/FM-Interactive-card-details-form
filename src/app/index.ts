@@ -1,16 +1,6 @@
-import FormChangeHandler from './form-change-handler';
+import FormHandler from './app-classes/form-handler';
 
-class CardService extends FormChangeHandler {
-  private form: HTMLFormElement | null =
-    document.querySelector<HTMLFormElement>('#card-form');
-
-  private confirmation: HTMLElement | null = document.querySelector<HTMLElement>(
-    '.confirmation__container',
-  );
-
-  private continueBtn: HTMLButtonElement | null =
-    document.querySelector<HTMLButtonElement>('#continue-btn');
-
+class CardService extends FormHandler {
   constructor() {
     super();
   }
@@ -20,22 +10,26 @@ class CardService extends FormChangeHandler {
 
     this.form?.addEventListener('submit', (e) => {
       e.preventDefault();
-      this.toggleFormView();
 
-      console.log(this.cardData);
+      if (this.cardData.isValidForm) {
+        this.toggleFormView();
+        console.log(this.cardData.data()); // Demo purpose only
+      } else {
+        this.markFirstEmptyInput();
+      }
     });
 
     this.continueBtn?.addEventListener('click', () => {
       if (this.form) {
         this.form.reset();
         this.cardData.reset();
-        this.cardView.update();
+        this.cardView.update(this.cardData);
         this.toggleFormView();
       }
     });
   }
 
-  toggleFormView(): void {
+  private toggleFormView(): void {
     this.form?.classList.toggle('hidden');
     this.confirmation?.classList.toggle('hidden');
   }

@@ -1,7 +1,8 @@
 .form {
   &__section {
+    position: relative;
     background-color: $white;
-    padding: 1.4rem 2.4rem 4.7rem 2.4rem;
+    padding: 1.4rem 2.4rem 7rem 2.4rem;
 
     @media screen and (min-width: $width-switch-point) {
       padding: 0;
@@ -61,6 +62,7 @@
 
   &__input:focus {
     border: 1px solid $input-focus;
+    outline: none;
   }
 
   &__input::placeholder {
@@ -87,7 +89,7 @@
     }
   }
 
-  &__submit-btn {
+  &__btn {
     width: 100%;
     height: 5.3rem;
     margin-top: 0.6rem;
@@ -104,11 +106,33 @@
     }
   }
 
-  &__submit-btn:hover {
+  &__btn:hover {
     background-color: rgba($very-dark-violet, 0.8);
   }
 
-  &__submit-btn:active {
+  &__btn:active {
     background-color: $very-dark-violet;
   }
+
+  &__error-msg {
+    display: block;
+    margin-bottom: 1.8rem;
+    font-size: 1.2rem;
+    line-height: 2.9;
+    color: $red-warn;
+  }
+
+  &__form:has(.invalid-field) > &__btn {
+    margin-top: 0;
+  }
+}
+
+.invalid-field,
+.invalid-field:focus {
+  border-color: $red-warn;
+  background-color: rgba($red-warn, 0.02);
+}
+
+.invalid-field:hover {
+  border-color: $red-warn-hover;
 }
