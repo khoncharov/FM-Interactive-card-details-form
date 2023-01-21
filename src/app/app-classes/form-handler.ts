@@ -1,6 +1,7 @@
 import AppView from './app-view';
 import CardData from './card-data';
 import {
+  INVALID_INPUT_CLASS,
   MAX_CARD_CVC_LENGTH,
   MAX_CARD_EXP_LENGTH,
   MAX_CARD_NUM_LENGTH,
@@ -107,6 +108,30 @@ export default class FormHandler extends AppView {
       this.cardView.update(this.cardData);
     });
 
+    this.cardholderInput?.addEventListener('blur', () => {
+      if (this.cardholderInput && this.cardholderErrField) {
+        if (!this.cardData.isValidHolderName) {
+          this.cardholderInput.classList.add(INVALID_INPUT_CLASS);
+          this.cardholderErrField.textContent = this.cardData.holderNameErrMsg;
+        } else {
+          this.cardholderInput.classList.remove(INVALID_INPUT_CLASS);
+          this.cardholderErrField.textContent = '';
+        }
+      }
+    });
+
+    this.cardNumberInput?.addEventListener('blur', () => {
+      if (this.cardNumberInput && this.cardNumberErrField) {
+        if (!this.cardData.isValidNumber) {
+          this.cardNumberInput.classList.add(INVALID_INPUT_CLASS);
+          this.cardNumberErrField.textContent = this.cardData.numberErrMsg;
+        } else {
+          this.cardNumberInput.classList.remove(INVALID_INPUT_CLASS);
+          this.cardNumberErrField.textContent = '';
+        }
+      }
+    });
+
     this.cardExpMonthInput?.addEventListener('blur', () => {
       if (this.cardExpMonthInput) {
         if (isNotEmptyStr(this.cardExpMonthInput.value)) {
@@ -117,6 +142,16 @@ export default class FormHandler extends AppView {
         }
       }
       this.cardView.update(this.cardData);
+
+      if (this.cardExpMonthInput && this.cardExpDateErrField) {
+        if (!this.cardData.isValidExpMonth) {
+          this.cardExpMonthInput.classList.add(INVALID_INPUT_CLASS);
+          this.cardExpDateErrField.textContent = this.cardData.expMonthErrMsg;
+        } else {
+          this.cardExpMonthInput.classList.remove(INVALID_INPUT_CLASS);
+          this.cardExpDateErrField.textContent = '';
+        }
+      }
     });
 
     this.cardExpYearInput?.addEventListener('blur', () => {
@@ -129,6 +164,28 @@ export default class FormHandler extends AppView {
         }
       }
       this.cardView.update(this.cardData);
+
+      if (this.cardExpYearInput && this.cardExpDateErrField) {
+        if (!this.cardData.isValidExpYear) {
+          this.cardExpYearInput.classList.add(INVALID_INPUT_CLASS);
+          this.cardExpDateErrField.textContent = this.cardData.expYearErrMsg;
+        } else {
+          this.cardExpYearInput.classList.remove(INVALID_INPUT_CLASS);
+          this.cardExpDateErrField.textContent = '';
+        }
+      }
+    });
+
+    this.cardCvcInput?.addEventListener('blur', () => {
+      if (this.cardCvcInput && this.cardCvcErrField) {
+        if (!this.cardData.isValidCvc) {
+          this.cardCvcInput.classList.add(INVALID_INPUT_CLASS);
+          this.cardCvcErrField.textContent = this.cardData.cvcErrMsg;
+        } else {
+          this.cardCvcInput.classList.remove(INVALID_INPUT_CLASS);
+          this.cardCvcErrField.textContent = '';
+        }
+      }
     });
   }
 }

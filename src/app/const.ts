@@ -14,3 +14,5 @@ export const MSG_WRONG_NAME = 'Latin letters, space and hyphen only';
 export const MSG_WRONG_NUMBER = 'Numbers only';
 export const MSG_WRONG_LENGTH = (length: number) => `Must be ${length} digit number`;
 export const MSG_WRONG_MONTH = 'Wrong month number';
+
+export const INVALID_INPUT_CLASS = 'invalid-field';

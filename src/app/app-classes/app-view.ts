@@ -1,5 +1,5 @@
 import CardView from './card-view';
-import { FormInputId } from '../types';
+import { FormErrField, FormInputId } from '../types';
 
 export default class AppView {
   protected form: HTMLFormElement | null;
@@ -13,6 +13,11 @@ export default class AppView {
   protected cardExpMonthInput: HTMLInputElement | null;
   protected cardExpYearInput: HTMLInputElement | null;
   protected cardCvcInput: HTMLInputElement | null;
+
+  protected cardholderErrField: HTMLElement | null;
+  protected cardNumberErrField: HTMLElement | null;
+  protected cardExpDateErrField: HTMLElement | null;
+  protected cardCvcErrField: HTMLElement | null;
 
   protected cardView = new CardView();
 
@@ -35,6 +40,19 @@ export default class AppView {
     );
     this.cardCvcInput = document.querySelector<HTMLInputElement>(
       `#${FormInputId.CARD_CVC}`,
+    );
+
+    this.cardholderErrField = document.querySelector<HTMLElement>(
+      `#${FormErrField.CARDHOLDER}`,
+    );
+    this.cardNumberErrField = document.querySelector<HTMLElement>(
+      `#${FormErrField.CARD_NUM}`,
+    );
+    this.cardExpDateErrField = document.querySelector<HTMLElement>(
+      `#${FormErrField.CARD_EXP_DATE}`,
+    );
+    this.cardCvcErrField = document.querySelector<HTMLElement>(
+      `#${FormErrField.CARD_CVC}`,
     );
   }
 }
