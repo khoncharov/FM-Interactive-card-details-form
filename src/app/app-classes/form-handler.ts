@@ -5,14 +5,14 @@ import {
   MAX_CARD_EXP_LENGTH,
   MAX_CARD_NUM_LENGTH,
   MAX_NAME_LENGTH,
-} from './const';
+} from '../const';
 import {
   deleteSpaces,
   formatCardholderName,
   formatCardNumber,
   isNotEmptyStr,
   prependZero,
-} from './utils';
+} from '../utils';
 
 export default class FormHandler extends AppView {
   protected cardData = new CardData();

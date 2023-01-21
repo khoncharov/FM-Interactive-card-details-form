@@ -1,4 +1,4 @@
-import FormHandler from './form-handler';
+import FormHandler from './app-classes/form-handler';
 
 class CardService extends FormHandler {
   constructor() {

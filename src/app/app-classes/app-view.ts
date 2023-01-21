@@ -1,5 +1,5 @@
 import CardView from './card-view';
-import { FormInputId } from './types';
+import { FormInputId } from '../types';
 
 export default class AppView {
   protected form: HTMLFormElement | null;

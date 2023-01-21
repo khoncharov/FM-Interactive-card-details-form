@@ -5,9 +5,9 @@ import {
   DEFAULT_CARD_EXP_MONTH,
   DEFAULT_CARD_EXP_YEAR,
   DEFAULT_CARD_NUMBER,
-} from './const';
-import { CardViewClassName } from './types';
-import { formatCardNumber } from './utils';
+} from '../const';
+import { CardViewClassName } from '../types';
+import { formatCardNumber } from '../utils';
 
 export default class CardView {
   protected cardholder: HTMLParagraphElement | null =

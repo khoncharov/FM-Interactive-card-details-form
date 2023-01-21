@@ -6,14 +6,14 @@ import {
   MSG_WRONG_MONTH,
   MSG_WRONG_NAME,
   MSG_WRONG_NUMBER,
-} from './const';
+} from '../const';
 import {
   isEmptyField,
   isInvalidCardholder,
   isInvalidLength,
   isInvalidMonth,
   isInvalidNumber,
-} from './validation-rules';
+} from '../validation-rules';
 
 export default class CardData {
   formData = new FormData();
