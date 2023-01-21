@@ -1,6 +1,6 @@
-import FormChangeHandler from './form-change-handler';
+import FormValidation from './form-validator';
 
-class CardService extends FormChangeHandler {
+class CardService extends FormValidation {
   private form: HTMLFormElement | null =
     document.querySelector<HTMLFormElement>('#card-form');
 
@@ -20,9 +20,11 @@ class CardService extends FormChangeHandler {
 
     this.form?.addEventListener('submit', (e) => {
       e.preventDefault();
-      this.toggleFormView();
 
-      console.dir(this.cardData); // Demo purpose only
+      if (this.isValidForm()) {
+        this.toggleFormView();
+        console.dir(this.cardData); // Demo purpose only
+      }
     });
 
     this.continueBtn?.addEventListener('click', () => {
@@ -35,7 +37,7 @@ class CardService extends FormChangeHandler {
     });
   }
 
-  toggleFormView(): void {
+  private toggleFormView(): void {
     this.form?.classList.toggle('hidden');
     this.confirmation?.classList.toggle('hidden');
   }
