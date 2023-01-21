@@ -25,15 +25,14 @@
           <div class="form__container">
             <form class="form__form" id="card-form">
               <div class="form__field-container">
-                <label class="form__label" for="cardholder-name" aria-required="true">
-                  Cardholder Name
-                </label>
+                <label class="form__label" for="cardholder-name">Cardholder Name</label>
                 <input
                   class="form__input"
                   id="cardholder-name"
                   type="text"
                   placeholder="e.g. Jane Appleseed"
                   autocomplete="off"
+                  aria-required="true"
                   aria-invalid="false"
                   aria-errormessage="cardholder-name-err"
                 />
@@ -45,15 +44,14 @@
               </div>
 
               <div class="form__field-container">
-                <label class="form__label" for="card-number" aria-required="true">
-                  Card Number
-                </label>
+                <label class="form__label" for="card-number">Card Number</label>
                 <input
                   class="form__input"
                   id="card-number"
                   type="text"
                   placeholder="e.g. 1234 5678 9123 0000"
                   autocomplete="off"
+                  aria-required="true"
                   aria-invalid="false"
                   aria-errormessage="card-number-err"
                 />
@@ -66,7 +64,6 @@
                     class="form__label"
                     id="card-exp-date"
                     aria-description="Expiration date (Month/Year)"
-                    aria-required="true"
                   >
                     Exp. Date (MM/YY)
                   </legend>
@@ -77,6 +74,7 @@
                       type="text"
                       placeholder="MM"
                       autocomplete="off"
+                      aria-required="true"
                       aria-labelledby="card-exp-date"
                       aria-label="month"
                       aria-invalid="false"
@@ -88,6 +86,7 @@
                       type="text"
                       placeholder="YY"
                       autocomplete="off"
+                      aria-required="true"
                       aria-labelledby="card-exp-date"
                       aria-label="year"
                       aria-invalid="false"
@@ -105,8 +104,7 @@
                   <label
                     class="form__label"
                     for="card-cvc"
-                    aria-description="CVC code"
-                    aria-required="true"
+                    aria-description="Card Verification Value/Code"
                   >
                     CVC
                   </label>
@@ -116,6 +114,7 @@
                     type="text"
                     placeholder="e.g. 123"
                     autocomplete="off"
+                    aria-required="true"
                     aria-invalid="false"
                     aria-errormessage="card-cvc-err"
                   />
