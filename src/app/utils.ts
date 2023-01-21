@@ -22,7 +22,10 @@ export const formatCardNumber = (value: string): string => {
   return result.join(' ');
 };
 
-export const deleteSpaces = (value: string): string => value.trim().split(' ').join('');
+export const deleteSpaces = (value: string): string => value.trim().split(/\s/).join('');
 
 export const prependZero = (value: string): string =>
   value.length === 1 ? `0${value}` : value;
+
+export const formatCardholderName = (value: string): string =>
+  value.trimStart().split(/\s+/).join(' ');
