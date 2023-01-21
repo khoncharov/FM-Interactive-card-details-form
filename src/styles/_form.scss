@@ -62,6 +62,7 @@
 
   &__input:focus {
     border: 1px solid $input-focus;
+    outline: none;
   }
 
   &__input::placeholder {
@@ -105,8 +106,7 @@
     }
   }
 
-  &__btn:hover,
-  &__btn:focus {
+  &__btn:hover {
     background-color: rgba($very-dark-violet, 0.8);
   }
 
