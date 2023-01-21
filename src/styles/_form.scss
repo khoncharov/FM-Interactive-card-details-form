@@ -130,6 +130,7 @@
 .invalid-field,
 .invalid-field:focus {
   border-color: $red-warn;
+  background-color: rgba($red-warn, 0.02);
 }
 
 .invalid-field:hover {
