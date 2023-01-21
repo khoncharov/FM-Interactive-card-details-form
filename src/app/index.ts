@@ -14,6 +14,8 @@ class CardService extends FormHandler {
       if (this.cardData.isValidForm) {
         this.toggleFormView();
         console.log(this.cardData.data); // Demo purpose only
+      } else {
+        this.markFirstEmptyInput();
       }
     });
 

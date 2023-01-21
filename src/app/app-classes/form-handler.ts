@@ -196,4 +196,43 @@ export default class FormHandler extends AppView {
       }
     });
   }
+
+  markFirstEmptyInput(): void {
+    if (
+      this.cardData.holderNameErrMsg &&
+      this.cardholderInput &&
+      this.cardholderErrField
+    ) {
+      this.cardholderInput.classList.add(INVALID_INPUT_CLASS);
+      this.cardholderErrField.textContent = this.cardData.holderNameErrMsg;
+    }
+
+    if (this.cardData.numberErrMsg && this.cardNumberInput && this.cardNumberErrField) {
+      this.cardNumberInput.classList.add(INVALID_INPUT_CLASS);
+      this.cardNumberErrField.textContent = this.cardData.numberErrMsg;
+    }
+
+    if (
+      this.cardData.expMonthErrMsg &&
+      this.cardExpMonthInput &&
+      this.cardExpDateErrField
+    ) {
+      this.cardExpMonthInput.classList.add(INVALID_INPUT_CLASS);
+      this.cardExpDateErrField.textContent = this.cardData.expMonthErrMsg;
+    }
+
+    if (
+      this.cardData.expYearErrMsg &&
+      this.cardExpYearInput &&
+      this.cardExpDateErrField
+    ) {
+      this.cardExpYearInput.classList.add(INVALID_INPUT_CLASS);
+      this.cardExpDateErrField.textContent = this.cardData.expYearErrMsg;
+    }
+
+    if (this.cardData.cvcErrMsg && this.cardCvcInput && this.cardCvcErrField) {
+      this.cardCvcInput.classList.add(INVALID_INPUT_CLASS);
+      this.cardCvcErrField.textContent = this.cardData.cvcErrMsg;
+    }
+  }
 }
