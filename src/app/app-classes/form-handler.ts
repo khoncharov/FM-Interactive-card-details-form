@@ -161,10 +161,10 @@ export default class FormHandler extends AppView {
           this.cardExpMonthInput.classList.remove(INVALID_INPUT_CLASS);
           this.cardExpMonthInput.setAttribute('aria-invalid', 'false');
 
-          if (this.cardData.isValidExpYear) {
-            this.cardExpDateErrField.textContent = '';
-          } else {
+          if (this.cardData.expYearErrMsg) {
             this.cardExpDateErrField.textContent = this.cardData.expYearErrMsg;
+          } else {
+            this.cardExpDateErrField.textContent = '';
           }
         }
       }
@@ -186,14 +186,14 @@ export default class FormHandler extends AppView {
           this.cardExpYearInput.classList.add(INVALID_INPUT_CLASS);
           this.cardExpYearInput.setAttribute('aria-invalid', 'true');
 
-          if (this.cardData.isValidExpMonth) {
+          if (!this.cardData.expMonthErrMsg) {
             this.cardExpDateErrField.textContent = this.cardData.expYearErrMsg;
           }
         } else {
           this.cardExpYearInput.classList.remove(INVALID_INPUT_CLASS);
           this.cardExpYearInput.setAttribute('aria-invalid', 'false');
 
-          if (this.cardData.isValidExpMonth) {
+          if (!this.cardData.expMonthErrMsg) {
             this.cardExpDateErrField.textContent = '';
           }
         }
