@@ -16,8 +16,6 @@ import {
 } from '../validation-rules';
 
 export default class CardData {
-  formData = new FormData();
-
   holderName: string = '';
   number: string = '';
   expMonth: string = '';
@@ -42,7 +40,6 @@ export default class CardData {
     }
 
     this.holderNameErrMsg = '';
-    this.formData.append('holderName', this.holderName);
     return true;
   }
 
@@ -62,7 +59,6 @@ export default class CardData {
     }
 
     this.numberErrMsg = '';
-    this.formData.append('number', this.number);
     return true;
   }
 
@@ -82,7 +78,6 @@ export default class CardData {
     }
 
     this.expMonthErrMsg = '';
-    this.formData.append('expMonth', this.expMonth);
     return true;
   }
 
@@ -98,7 +93,6 @@ export default class CardData {
     }
 
     this.expYearErrMsg = '';
-    this.formData.append('expYear', this.expYear);
     return true;
   }
 
@@ -118,7 +112,6 @@ export default class CardData {
     }
 
     this.cvcErrMsg = '';
-    this.formData.append('cvc', this.cvc);
     return true;
   }
 
@@ -138,6 +131,15 @@ export default class CardData {
     this.expMonth = '';
     this.expYear = '';
     this.cvc = '';
-    this.formData = new FormData();
+  }
+
+  data() {
+    return {
+      holderName: this.holderName,
+      number: this.number,
+      expMonth: this.expMonth,
+      expYear: this.expYear,
+      cvc: this.cvc,
+    };
   }
 }

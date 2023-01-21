@@ -13,9 +13,7 @@ class CardService extends FormHandler {
 
       if (this.cardData.isValidForm) {
         this.toggleFormView();
-        this.cardData.formData.forEach((value, key) => {
-          console.log(`${key}: ${value}`);
-        }); // Demo purpose only
+        console.log(this.cardData.data); // Demo purpose only
       }
     });
 
