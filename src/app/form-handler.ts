@@ -1,12 +1,11 @@
-import cardData from './card-data';
-import { cardView } from './card-view';
+import AppView from './app-view';
+import CardData from './card-data';
 import {
   MAX_CARD_CVC_LENGTH,
   MAX_CARD_EXP_LENGTH,
   MAX_CARD_NUM_LENGTH,
   MAX_NAME_LENGTH,
 } from './const';
-import { FormInputId } from './types';
 import {
   deleteSpaces,
   formatCardholderName,
@@ -15,27 +14,12 @@ import {
   prependZero,
 } from './utils';
 
-export default class FormChangeHandler {
-  protected cardholderInput: HTMLInputElement | null =
-    document.querySelector<HTMLInputElement>(`#${FormInputId.CARDHOLDER}`);
-
-  protected cardNumberInput: HTMLInputElement | null =
-    document.querySelector<HTMLInputElement>(`#${FormInputId.CARD_NUM}`);
-
-  protected cardExpMonthInput: HTMLInputElement | null =
-    document.querySelector<HTMLInputElement>(`#${FormInputId.CARD_EXP_MONTH}`);
-
-  protected cardExpYearInput: HTMLInputElement | null =
-    document.querySelector<HTMLInputElement>(`#${FormInputId.CARD_EXP_YEAR}`);
-
-  protected cardCvcInput: HTMLInputElement | null =
-    document.querySelector<HTMLInputElement>(`#${FormInputId.CARD_CVC}`);
-
-  protected cardData = cardData;
-
-  protected cardView = cardView;
+export default class FormHandler extends AppView {
+  protected cardData = new CardData();
 
   constructor() {
+    super();
+
     this.cardholderInput?.addEventListener('input', () => {
       if (this.cardholderInput) {
         if (isNotEmptyStr(this.cardholderInput.value)) {
@@ -44,10 +28,11 @@ export default class FormChangeHandler {
           ).slice(0, MAX_NAME_LENGTH);
           this.cardholderInput.value = this.cardData.holderName;
         } else {
-          this.cardData.holderName = null;
+          this.cardData.holderName = '';
         }
       }
-      this.cardView.update();
+
+      this.cardView.update(this.cardData);
     });
 
     this.cardNumberInput?.addEventListener('input', () => {
@@ -59,39 +44,40 @@ export default class FormChangeHandler {
           );
           this.cardNumberInput.value = formatCardNumber(this.cardData.number);
         } else {
-          this.cardData.number = null;
+          this.cardData.number = '';
         }
       }
-      this.cardView.update();
+      this.cardView.update(this.cardData);
     });
 
     this.cardExpMonthInput?.addEventListener('input', () => {
       if (this.cardExpMonthInput) {
         if (isNotEmptyStr(this.cardExpMonthInput.value)) {
-          this.cardData.expirationMonth = deleteSpaces(
-            this.cardExpMonthInput.value,
-          ).slice(0, MAX_CARD_EXP_LENGTH);
-          this.cardExpMonthInput.value = this.cardData.expirationMonth;
+          this.cardData.expMonth = deleteSpaces(this.cardExpMonthInput.value).slice(
+            0,
+            MAX_CARD_EXP_LENGTH,
+          );
+          this.cardExpMonthInput.value = this.cardData.expMonth;
         } else {
-          this.cardData.expirationMonth = null;
+          this.cardData.expMonth = '';
         }
       }
-      this.cardView.update();
+      this.cardView.update(this.cardData);
     });
 
     this.cardExpYearInput?.addEventListener('input', () => {
       if (this.cardExpYearInput) {
         if (isNotEmptyStr(this.cardExpYearInput.value)) {
-          this.cardData.expirationYear = deleteSpaces(this.cardExpYearInput.value).slice(
+          this.cardData.expYear = deleteSpaces(this.cardExpYearInput.value).slice(
             0,
             MAX_CARD_EXP_LENGTH,
           );
-          this.cardExpYearInput.value = this.cardData.expirationYear;
+          this.cardExpYearInput.value = this.cardData.expYear;
         } else {
-          this.cardData.expirationYear = null;
+          this.cardData.expYear = '';
         }
       }
-      this.cardView.update();
+      this.cardView.update(this.cardData);
     });
 
     this.cardCvcInput?.addEventListener('input', () => {
@@ -103,10 +89,10 @@ export default class FormChangeHandler {
           );
           this.cardCvcInput.value = this.cardData.cvc;
         } else {
-          this.cardData.cvc = null;
+          this.cardData.cvc = '';
         }
       }
-      this.cardView.update();
+      this.cardView.update(this.cardData);
     });
 
     this.cardholderInput?.addEventListener('blur', () => {
@@ -115,34 +101,34 @@ export default class FormChangeHandler {
           this.cardData.holderName = this.cardholderInput.value.trim();
           this.cardholderInput.value = this.cardData.holderName;
         } else {
-          this.cardData.expirationMonth = null;
+          this.cardData.expMonth = '';
         }
       }
-      this.cardView.update();
+      this.cardView.update(this.cardData);
     });
 
     this.cardExpMonthInput?.addEventListener('blur', () => {
       if (this.cardExpMonthInput) {
         if (isNotEmptyStr(this.cardExpMonthInput.value)) {
-          this.cardData.expirationMonth = prependZero(this.cardExpMonthInput.value);
-          this.cardExpMonthInput.value = this.cardData.expirationMonth;
+          this.cardData.expMonth = prependZero(this.cardExpMonthInput.value);
+          this.cardExpMonthInput.value = this.cardData.expMonth;
         } else {
-          this.cardData.expirationMonth = null;
+          this.cardData.expMonth = '';
         }
       }
-      this.cardView.update();
+      this.cardView.update(this.cardData);
     });
 
     this.cardExpYearInput?.addEventListener('blur', () => {
       if (this.cardExpYearInput) {
         if (isNotEmptyStr(this.cardExpYearInput.value)) {
-          this.cardData.expirationYear = prependZero(this.cardExpYearInput.value);
-          this.cardExpYearInput.value = this.cardData.expirationYear;
+          this.cardData.expYear = prependZero(this.cardExpYearInput.value);
+          this.cardExpYearInput.value = this.cardData.expYear;
         } else {
-          this.cardData.expirationYear = null;
+          this.cardData.expYear = '';
         }
       }
-      this.cardView.update();
+      this.cardView.update(this.cardData);
     });
   }
 }
