@@ -173,7 +173,7 @@ export default class FormHandler extends AppView {
     this.cardExpYearInput?.addEventListener('blur', () => {
       if (this.cardExpYearInput) {
         if (isNotEmptyStr(this.cardExpYearInput.value)) {
-          this.cardData.expYear = prependZero(this.cardExpYearInput.value);
+          this.cardData.expYear = this.cardExpYearInput.value;
           this.cardExpYearInput.value = this.cardData.expYear;
         } else {
           this.cardData.expYear = '';

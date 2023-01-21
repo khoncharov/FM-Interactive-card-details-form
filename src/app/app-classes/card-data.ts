@@ -1,5 +1,6 @@
 import {
   MAX_CARD_CVC_LENGTH,
+  MAX_CARD_EXP_LENGTH,
   MAX_CARD_NUM_LENGTH,
   MSG_REQUIRED_FIELD,
   MSG_WRONG_LENGTH,
@@ -88,6 +89,10 @@ export default class CardData {
       return false;
     } else if (this.expYear && isInvalidNumber(this.expYear)) {
       this.expYearErrMsg = MSG_WRONG_NUMBER;
+
+      return false;
+    } else if (this.expYear && isInvalidLength(this.expYear, MAX_CARD_EXP_LENGTH)) {
+      this.expYearErrMsg = MSG_WRONG_LENGTH(MAX_CARD_EXP_LENGTH);
 
       return false;
     }
