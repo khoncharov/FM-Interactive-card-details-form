@@ -17,3 +17,4 @@ This is the solution to the task ["Interactive card details form"](https://www.f
 
 - [Web forms — Working with user data](https://developer.mozilla.org/en-US/docs/Learn/Forms)
 - [Learn web development](https://web.dev/learn)
+- [WAI-ARIA 1.1 Cheat Sheet](https://www.digitala11y.com/wai-aria-1-1-cheat-sheet)
